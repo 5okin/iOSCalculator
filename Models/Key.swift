@@ -26,8 +26,6 @@ struct Key: Identifiable, Hashable {
      var width: CGFloat = (UIScreen.main.bounds.width - 5 * 12) / 4
     
      mutating func buttonPressed() {
-        print(self)
         self.pressed.toggle()
-        print(self)
     }
  }

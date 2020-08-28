@@ -13,16 +13,14 @@ struct ResultView: View{
     @EnvironmentObject var env: GloableEnvirement
     
     var body: some View{
-       // VStack {
-            HStack {
-                Spacer()
-                Text(env.result)
-                    .font(.system(size: CGFloat(env.fontSize)))
-                    .fontWeight(.light)
-                    .lineLimit(1)
-                    .font(.system(size: 70))
-            }.padding()
-       // }
+        HStack {
+            Text(env.result)
+                .font(.system(size: 90))
+                .fontWeight(.light)
+                .lineLimit(1)
+                .frame(width: CGFloat (UIScreen.main.bounds.width - 50 ), alignment: .trailing)
+                .minimumScaleFactor(0.01)
+        }
     }
 }
 

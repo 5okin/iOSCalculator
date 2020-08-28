@@ -16,7 +16,7 @@ struct Keypad: View{
     var body: some View{
         VStack ( spacing: 12 ) {
             ForEach (env.Buttons, id: \.self) { row in
-                HStack ( spacing: 12 ) {
+                HStack () {
                     ForEach ( row, id: \.self) { button in
                         Button(action: {
                             self.env.receiveInput(Key: button)
@@ -26,7 +26,7 @@ struct Keypad: View{
                             }*/
                         }) {
                             Group{
-                                if ( button.type != KeyType.Number ){
+                                if ( button.type == KeyType.Operator ) {
                                     Image(systemName: button.operatorSymbols )
                                         .font(.system(size: 30))
                                 }else{
