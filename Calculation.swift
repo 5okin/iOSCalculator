@@ -37,7 +37,7 @@ class GloableEnvirement: ObservableObject{
             }
             handleOperationSelections(label: Key.label)
         }
-        else if Key.type == KeyType.Modifier{
+        else if Key.label == "+/-"{
             handleModifierOperations(label: Key.label)
         }
         else {
@@ -64,6 +64,7 @@ class GloableEnvirement: ObservableObject{
         default:
             break
         }
+        previousValue = Double(self.unformattedNumber)!
         self.result = formatNumber(value: self.unformattedNumber)
     }
     
@@ -93,7 +94,7 @@ class GloableEnvirement: ObservableObject{
             previousValue = calculatedValue
         }
         
-        if (activeOperation != "") {
+        else if (activeOperation != "" && activeOperation != "=") {
             switch activeOperation {
                 case "+":
                     calculatedValue = previousValue + currentNumber
@@ -111,9 +112,10 @@ class GloableEnvirement: ObservableObject{
         }
         else
         {
+            activeOperation = label
             previousValue = previousValue > 0 ? previousValue : currentNumber
         }
-        activeOperation = label != "%" ? label : ""
+        activeOperation = label != "=" ? label : ""
         unformattedNumber = "0"
     }
     
@@ -160,7 +162,7 @@ class GloableEnvirement: ObservableObject{
 //MARK: BUTTONS
     @Published var Buttons: [[Key]] = [
         [ Key(label:"C", labelColor: .black, color: Color(.lightGray) ),
-          Key(label:"+/-", labelColor: .black, operatorSymbols: "plus.slash.minus", color: Color(.lightGray), type: KeyType.Modifier),
+          Key(label:"+/-", labelColor: .black, operatorSymbols: "plus.slash.minus", color: Color(.lightGray)),
           Key(label:"%", labelColor: .black, operatorSymbols: "percent", color: Color(.lightGray), type: KeyType.Operator),
           Key(label:"/", operatorSymbols: "divide", color: Color.orange , type: KeyType.Operator)
         ],
