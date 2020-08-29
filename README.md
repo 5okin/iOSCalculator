@@ -5,6 +5,7 @@ A calculator for iOS made using SwiftUI
 
 ___
 <br>
+
 # Features
 <ul>
   <li>Operator Buttons stay pressed until the operation is completed</li>
