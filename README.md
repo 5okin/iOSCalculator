@@ -4,6 +4,7 @@ A calculator for iOS made using SwiftUI
 <img align="right" src="https://user-images.githubusercontent.com/70406237/91624737-92831e00-e9aa-11ea-9689-c50d58827d0a.png" width="300" />
 
 ___
+<br>
 # Features
 <ul>
   <li>Operator Buttons stay pressed until the operation is completed</li>
