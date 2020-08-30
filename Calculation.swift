@@ -13,7 +13,7 @@ class GloableEnvirement: ObservableObject{
 //MARK: Gloable Variables
     @Published var result = "0"
     
-    var numberForamter: NumberFormatter = NumberFormatter()
+    var numberFormatter: NumberFormatter = NumberFormatter()
     var unformattedNumber: String = "0"
     
     var activeOperation: String = ""
@@ -21,13 +21,12 @@ class GloableEnvirement: ObservableObject{
     
     
     init(){
-        self.numberForamter.usesGroupingSeparator = true
-        self.numberForamter.numberStyle = .decimal
-        self.numberForamter.locale = Locale.current
+        self.numberFormatter.usesGroupingSeparator = true
+        self.numberFormatter.numberStyle = .decimal
+        self.numberFormatter.locale = Locale.current
     }
     
-    
-    
+
 //MARK: Receive Button From KeyPad
     func receiveInput(Key: Key) {
         if Key.type == KeyType.Operator {
@@ -59,24 +58,23 @@ class GloableEnvirement: ObservableObject{
         switch label {
         case "+/-":
             if self.result != "0"{
-                self.unformattedNumber = self.result.contains("-") ? String((self.result).dropFirst()) : "-" + self.result
+                self.unformattedNumber = self.result.contains("-") ? String((self.unformattedNumber).dropFirst()) : "-" + self.unformattedNumber
             }
         default:
             break
         }
-        previousValue = Double(self.unformattedNumber)!
-        self.result = formatNumber(value: self.unformattedNumber)
+        self.result = addLocaleSeperators(value: self.unformattedNumber)
     }
     
     
 //MARK: Operations
     func handleOperationSelections(label: String){
         var calculatedValue: Double = 0
-        let currentNumber: Double = Double(unformattedNumber) ?? 0
+        let currentNumber: Double = stringToDouble(number: unformattedNumber)
         
         if ( label == "%" ){
-            result = formatNumber(value: String((currentNumber * 0.01) * (previousValue == 0 ? 1 : previousValue)  ))
-            calculatedValue = Double(result)!
+            calculatedValue = Double ( String((currentNumber * 0.01) * (previousValue == 0 ? 1 : previousValue)  ))!
+            result = addLocaleSeperators( value: String(calculatedValue) )
             
             switch activeOperation {
             case "-":
@@ -108,7 +106,7 @@ class GloableEnvirement: ObservableObject{
                     calculatedValue = previousValue
             }
             previousValue = calculatedValue
-            result = formatNumber(value: String(calculatedValue))
+            result = addLocaleSeperators(value: String(calculatedValue))
         }
         else
         {
@@ -123,21 +121,29 @@ class GloableEnvirement: ObservableObject{
 //MARK: ResultView Handler
     func handleResultView(number: String) {
         if (self.unformattedNumber.count == 0 || self.unformattedNumber.count < 9){
-            if number != Locale.current.decimalSeparator {
-                self.unformattedNumber = self.unformattedNumber == "0" ? number: self.unformattedNumber + number
-                self.result = formatNumber(value: self.unformattedNumber)
-            }else{
-                self.unformattedNumber = self.result.contains(String(Locale.current.decimalSeparator!)) ? self.result : self.result + number
-                self.result = self.unformattedNumber
-            }
+            self.unformattedNumber = self.unformattedNumber == "0" && !number.contains(String(Locale.current.decimalSeparator!)) ? number: self.unformattedNumber + number
+            self.result = addLocaleSeperators(value: self.unformattedNumber)
         }
+    }
+    
+
+//MARK: String To double with local decimal identifier
+    
+    func stringToDouble(number: String) -> Double {
+        var doubleValue: Double = 0
+        if number.contains(String(Locale(identifier: "US").decimalSeparator!)){
+            doubleValue = Double(number)!
+        }else{
+            doubleValue = Double( number.replacingOccurrences(of: String(Locale.current.decimalSeparator!) , with: ".") )!
+        }
+        return doubleValue
     }
     
     
 //MARK: Add Locale Separator to result view number
-    func formatNumber(value: String) -> String {
+    func addLocaleSeperators(value: String) -> String {
         if let doubleValue = Double(value){
-            return self.numberForamter.string(from: NSNumber(value: doubleValue)) ?? value
+            return self.numberFormatter.string(from: NSNumber(value: doubleValue)) ?? value
         }
         return value
     }
@@ -182,7 +188,7 @@ class GloableEnvirement: ObservableObject{
           Key(label:"+", operatorSymbols: "plus", color: Color.orange, type: KeyType.Operator)
         ],
         [ Key(label:"0", width: (UIScreen.main.bounds.width - 4 * 12) / 4 * 2),
-          Key(label: Locale.current.decimalSeparator ?? "L"),
+          Key(label: String(Locale.current.decimalSeparator!) ),
           Key(label:"=", operatorSymbols: "equal", color: Color.orange, type: KeyType.Operator)
         ],
     ]
