@@ -14,7 +14,7 @@ enum KeyType{
  }
 
 struct Key: Identifiable, Hashable {
-    
+
      var id: UUID = UUID()
      var pressed: Bool = false
      var label: String

@@ -54,6 +54,7 @@ class GloableEnvirement: ObservableObject{
         }
     }
     
+    
     func handleModifierOperations(label: String){
         switch label {
         case "+/-":

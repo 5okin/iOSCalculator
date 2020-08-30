@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct ResultView: View{
     
     @EnvironmentObject var env: GloableEnvirement
