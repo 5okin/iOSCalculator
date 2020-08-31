@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		020C3D1124FD4323002BA7A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 020C3D1024FD4323002BA7A3 /* README.md */; };
 		020C3D1324FD5CBE002BA7A3 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C3D1224FD5CBE002BA7A3 /* Operations.swift */; };
+		020C3D1524FD6695002BA7A3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 020C3D1424FD6695002BA7A3 /* LICENSE */; };
 		02A3477924F99E7A00A39D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477824F99E7A00A39D45 /* AppDelegate.swift */; };
 		02A3477B24F99E7A00A39D45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477A24F99E7A00A39D45 /* SceneDelegate.swift */; };
 		02A3477D24F99E7A00A39D45 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477C24F99E7A00A39D45 /* ContentView.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		020C3D1024FD4323002BA7A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		020C3D1224FD5CBE002BA7A3 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		020C3D1424FD6695002BA7A3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		02A3477524F99E7A00A39D45 /* iOSCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A3477824F99E7A00A39D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A3477A24F99E7A00A39D45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		02A3476C24F99E7A00A39D45 = {
 			isa = PBXGroup;
 			children = (
+				020C3D1424FD6695002BA7A3 /* LICENSE */,
 				020C3D1024FD4323002BA7A3 /* README.md */,
 				02A3479124F99F0C00A39D45 /* Calculation.swift */,
 				020C3D1224FD5CBE002BA7A3 /* Operations.swift */,
@@ -171,6 +174,7 @@
 				02A3478224F99E7B00A39D45 /* Preview Assets.xcassets in Resources */,
 				020C3D1124FD4323002BA7A3 /* README.md in Resources */,
 				02A3477F24F99E7B00A39D45 /* Assets.xcassets in Resources */,
+				020C3D1524FD6695002BA7A3 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
