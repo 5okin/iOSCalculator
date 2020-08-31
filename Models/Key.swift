@@ -11,6 +11,7 @@ import SwiftUI
 enum KeyType{
     case Number
     case Operator
+    case Modifier
  }
 
 struct Key: Identifiable, Hashable {

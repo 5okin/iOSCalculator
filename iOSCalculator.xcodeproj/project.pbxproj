@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0269B66F24FC339400B00149 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0269B66E24FC339400B00149 /* README.md */; };
+		020C3D1124FD4323002BA7A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 020C3D1024FD4323002BA7A3 /* README.md */; };
+		020C3D1324FD5CBE002BA7A3 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C3D1224FD5CBE002BA7A3 /* Operations.swift */; };
 		02A3477924F99E7A00A39D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477824F99E7A00A39D45 /* AppDelegate.swift */; };
 		02A3477B24F99E7A00A39D45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477A24F99E7A00A39D45 /* SceneDelegate.swift */; };
 		02A3477D24F99E7A00A39D45 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477C24F99E7A00A39D45 /* ContentView.swift */; };
@@ -21,7 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0269B66E24FC339400B00149 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../Desktop/README.md; sourceTree = "<group>"; };
+		020C3D1024FD4323002BA7A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		020C3D1224FD5CBE002BA7A3 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		02A3477524F99E7A00A39D45 /* iOSCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A3477824F99E7A00A39D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A3477A24F99E7A00A39D45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +52,9 @@
 		02A3476C24F99E7A00A39D45 = {
 			isa = PBXGroup;
 			children = (
-				0269B66E24FC339400B00149 /* README.md */,
+				020C3D1024FD4323002BA7A3 /* README.md */,
 				02A3479124F99F0C00A39D45 /* Calculation.swift */,
+				020C3D1224FD5CBE002BA7A3 /* Operations.swift */,
 				02A3479524F99F3C00A39D45 /* Models */,
 				02A3479024F99EB200A39D45 /* Views */,
 				02A3477724F99E7A00A39D45 /* iOSCalculator */,
@@ -166,7 +169,7 @@
 			files = (
 				02A3478524F99E7B00A39D45 /* LaunchScreen.storyboard in Resources */,
 				02A3478224F99E7B00A39D45 /* Preview Assets.xcassets in Resources */,
-				0269B66F24FC339400B00149 /* README.md in Resources */,
+				020C3D1124FD4323002BA7A3 /* README.md in Resources */,
 				02A3477F24F99E7B00A39D45 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +188,7 @@
 				02A3478F24F99EAA00A39D45 /* ResultView.swift in Sources */,
 				02A3477B24F99E7A00A39D45 /* SceneDelegate.swift in Sources */,
 				02A3477D24F99E7A00A39D45 /* ContentView.swift in Sources */,
+				020C3D1324FD5CBE002BA7A3 /* Operations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

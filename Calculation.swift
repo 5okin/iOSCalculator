@@ -13,12 +13,11 @@ class GloableEnvirement: ObservableObject{
 //MARK: Gloable Variables
     @Published var result = "0"
     
-    var numberFormatter: NumberFormatter = NumberFormatter()
     var unformattedNumber: String = "0"
-    
     var activeOperation: String = ""
     var previousValue: Double = 0
     
+    var numberFormatter: NumberFormatter = NumberFormatter()
     
     init(){
         self.numberFormatter.usesGroupingSeparator = true
@@ -36,7 +35,7 @@ class GloableEnvirement: ObservableObject{
             }
             handleOperationSelections(label: Key.label)
         }
-        else if Key.label == "+/-"{
+        else if Key.type == KeyType.Modifier {
             handleModifierOperations(label: Key.label)
         }
         else {
@@ -54,22 +53,25 @@ class GloableEnvirement: ObservableObject{
         }
     }
     
-    
-    func handleModifierOperations(label: String){
+//MARK: Modifier Handler
+    private func handleModifierOperations(label: String){
         switch label {
         case "+/-":
             if self.result != "0"{
                 self.unformattedNumber = self.result.contains("-") ? String((self.unformattedNumber).dropFirst()) : "-" + self.unformattedNumber
             }
+            self.result = addLocaleSeperators(value: self.unformattedNumber)
         default:
-            break
+            if !self.unformattedNumber.contains(String(Locale.current.decimalSeparator!)) {
+                self.unformattedNumber += label
+                self.result = self.result + label
+            }
         }
-        self.result = addLocaleSeperators(value: self.unformattedNumber)
     }
     
     
 //MARK: Operations
-    func handleOperationSelections(label: String){
+    private func handleOperationSelections(label: String){
         var calculatedValue: Double = 0
         let currentNumber: Double = stringToDouble(number: unformattedNumber)
         
@@ -120,17 +122,17 @@ class GloableEnvirement: ObservableObject{
     
     
 //MARK: ResultView Handler
-    func handleResultView(number: String) {
-        if (self.unformattedNumber.count == 0 || self.unformattedNumber.count < 9){
-            self.unformattedNumber = self.unformattedNumber == "0" && !number.contains(String(Locale.current.decimalSeparator!)) ? number: self.unformattedNumber + number
-            self.result = addLocaleSeperators(value: self.unformattedNumber)
+    private func handleResultView(number: String) {
+        if (self.unformattedNumber.count == 0 || self.unformattedNumber.count < 10){
+            self.unformattedNumber = self.unformattedNumber == "0" ? number: self.unformattedNumber + number
+            self.result = addLocaleSeperators(value:  String(stringToDouble(number: self.unformattedNumber)))
         }
     }
     
 
 //MARK: String To double with local decimal identifier
     
-    func stringToDouble(number: String) -> Double {
+    private func stringToDouble(number: String) -> Double {
         var doubleValue: Double = 0
         if number.contains(String(Locale(identifier: "US").decimalSeparator!)){
             doubleValue = Double(number)!
@@ -142,7 +144,7 @@ class GloableEnvirement: ObservableObject{
     
     
 //MARK: Add Locale Separator to result view number
-    func addLocaleSeperators(value: String) -> String {
+    private func addLocaleSeperators(value: String) -> String {
         if let doubleValue = Double(value){
             return self.numberFormatter.string(from: NSNumber(value: doubleValue)) ?? value
         }
@@ -151,7 +153,7 @@ class GloableEnvirement: ObservableObject{
     
         
 //MARK: Operator Button Toggle
-    func operatorToggle( _ button: String ){
+    private func operatorToggle( _ button: String ){
         for (i,_) in Buttons.enumerated()  {
             for (j,_) in Buttons[i].enumerated() {
                 if button.isEmpty {
@@ -169,7 +171,7 @@ class GloableEnvirement: ObservableObject{
 //MARK: BUTTONS
     @Published var Buttons: [[Key]] = [
         [ Key(label:"C", labelColor: .black, color: Color(.lightGray) ),
-          Key(label:"+/-", labelColor: .black, operatorSymbols: "plus.slash.minus", color: Color(.lightGray)),
+          Key(label:"+/-", labelColor: .black, operatorSymbols: "plus.slash.minus", color: Color(.lightGray), type: KeyType.Modifier),
           Key(label:"%", labelColor: .black, operatorSymbols: "percent", color: Color(.lightGray), type: KeyType.Operator),
           Key(label:"/", operatorSymbols: "divide", color: Color.orange , type: KeyType.Operator)
         ],
@@ -189,7 +191,7 @@ class GloableEnvirement: ObservableObject{
           Key(label:"+", operatorSymbols: "plus", color: Color.orange, type: KeyType.Operator)
         ],
         [ Key(label:"0", width: (UIScreen.main.bounds.width - 4 * 12) / 4 * 2),
-          Key(label: String(Locale.current.decimalSeparator!) ),
+          Key(label: String(Locale.current.decimalSeparator!), type: KeyType.Modifier),
           Key(label:"=", operatorSymbols: "equal", color: Color.orange, type: KeyType.Operator)
         ],
     ]

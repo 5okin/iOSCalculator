@@ -19,7 +19,7 @@ struct ResultView: View{
                 .font(.system(size: 90))
                 .fontWeight(.light)
                 .lineLimit(1)
-                .frame(width: CGFloat (UIScreen.main.bounds.width - 50 ), alignment: .trailing)
+                .frame(width: CGFloat (UIScreen.main.bounds.width - 70 ), alignment: .trailing)
                 .minimumScaleFactor(0.01)
         }
     }
