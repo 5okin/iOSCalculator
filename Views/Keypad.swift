@@ -26,7 +26,7 @@ struct Keypad: View{
                             }*/
                         }) {
                             Group{
-                                if ( button.type == KeyType.Operator ) {
+                                if !button.operatorSymbols .isEmpty {
                                     Image(systemName: button.operatorSymbols )
                                         .font(.system(size: 30))
                                 }else{

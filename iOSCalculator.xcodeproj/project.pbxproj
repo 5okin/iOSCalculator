@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		020C3D1124FD4323002BA7A3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 020C3D1024FD4323002BA7A3 /* README.md */; };
-		020C3D1324FD5CBE002BA7A3 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020C3D1224FD5CBE002BA7A3 /* Operations.swift */; };
 		020C3D1524FD6695002BA7A3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 020C3D1424FD6695002BA7A3 /* LICENSE */; };
 		02A3477924F99E7A00A39D45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477824F99E7A00A39D45 /* AppDelegate.swift */; };
 		02A3477B24F99E7A00A39D45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A3477A24F99E7A00A39D45 /* SceneDelegate.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		020C3D1024FD4323002BA7A3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		020C3D1224FD5CBE002BA7A3 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		020C3D1424FD6695002BA7A3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		02A3477524F99E7A00A39D45 /* iOSCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A3477824F99E7A00A39D45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 				020C3D1424FD6695002BA7A3 /* LICENSE */,
 				020C3D1024FD4323002BA7A3 /* README.md */,
 				02A3479124F99F0C00A39D45 /* Calculation.swift */,
-				020C3D1224FD5CBE002BA7A3 /* Operations.swift */,
 				02A3479524F99F3C00A39D45 /* Models */,
 				02A3479024F99EB200A39D45 /* Views */,
 				02A3477724F99E7A00A39D45 /* iOSCalculator */,
@@ -192,7 +189,6 @@
 				02A3478F24F99EAA00A39D45 /* ResultView.swift in Sources */,
 				02A3477B24F99E7A00A39D45 /* SceneDelegate.swift in Sources */,
 				02A3477D24F99E7A00A39D45 /* ContentView.swift in Sources */,
-				020C3D1324FD5CBE002BA7A3 /* Operations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
